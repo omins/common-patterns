@@ -48,7 +48,9 @@ class GraphWidgetBuilderImpl implements GraphWidgetBuilder {
   }
 }
 
-// // Director number 1
+/**
+ * Director 1
+ */
 // class GraphWidgetDirector {
 //   static buildMapWidget(builder: GraphWidgetBuilder): GraphWidget {
 //     return builder
@@ -77,7 +79,9 @@ class GraphWidgetBuilderImpl implements GraphWidgetBuilder {
 // console.log(mapWidget);
 // console.log(barGraphWidget);
 
-// Director number 2
+/**
+ * Director 2
+ */
 interface WidgetDirector {
   makeWidget(): GraphWidget;
 }
@@ -111,3 +115,40 @@ const barGraphWidget = barGraphDirector.makeWidget();
 
 console.log(mapWidget);
 console.log(barGraphWidget);
+
+/**
+ * Without builder pattern
+ */
+
+class GraphWidgetWidget {
+  type: string;
+  subType: string;
+  dimensionIds: string[];
+  showGraphLabel?: boolean;
+
+  constructor(
+    type: string,
+    subType: string,
+    dimensionIds: string[],
+    showGraphLabel?: boolean
+  ) {
+    this.type = type;
+    this.subType = subType;
+    this.dimensionIds = dimensionIds;
+    this.showGraphLabel = showGraphLabel;
+  }
+}
+
+const mapWidgetWithoutBuilder = new GraphWidgetWidget(
+  'graph',
+  'choropleth_map',
+  [COUNTRY_BREAKDOWN]
+);
+const barGraphWidgetWithoutBuilder = new GraphWidgetWidget(
+  'graph',
+  'bar',
+  [DEFAULT_BREAKDOWN],
+  true
+);
+console.log(mapWidgetWithoutBuilder);
+console.log(barGraphWidgetWithoutBuilder);

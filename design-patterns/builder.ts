@@ -1,5 +1,5 @@
-const DEFAULT_BREAKDOWN = 'channel';
-const COUNTRY_BREAKDOWN = 'country';
+export const DEFAULT_BREAKDOWN = 'channel';
+export const COUNTRY_BREAKDOWN = 'country';
 
 class GraphWidget {
   type: string;
@@ -82,7 +82,7 @@ interface WidgetDirector {
   makeWidget(): GraphWidget;
 }
 
-class ChoroplethMapDirector implements WidgetDirector {
+export class ChoroplethMapDirector implements WidgetDirector {
   makeWidget(): GraphWidget {
     return new GraphWidgetBuilderImpl()
       .setType('graph')
@@ -92,7 +92,7 @@ class ChoroplethMapDirector implements WidgetDirector {
   }
 }
 
-class BarGraphDirector implements WidgetDirector {
+export class BarGraphDirector implements WidgetDirector {
   makeWidget(): GraphWidget {
     return new GraphWidgetBuilderImpl()
       .setType('graph')

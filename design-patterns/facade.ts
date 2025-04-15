@@ -7,7 +7,7 @@ interface ChartFacade {
 }
 
 class EchartsFacade implements ChartFacade {
-  private chart: echarts.ECharts;
+  // private chart: echarts.ECharts;
 
   init(container: HTMLElement): void {
     console.log('init', container);
